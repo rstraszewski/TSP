@@ -12,10 +12,10 @@ int main()
 	auto gl = new Graph();
 
 	gl->Load();
-	auto problem = new TspProblem(gl);
-	auto result = problem->Solve();
+	//auto problem = new TspProblem(gl);
+	//auto result = problem->Solve();
 
-	cout << problem->Cost << endl;
+	//cout << problem->Cost << endl;
 	auto agl = new aGraph();
 	agl->Load();
 	auto aproblem = new aTspProblem(agl);

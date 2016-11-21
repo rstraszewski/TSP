@@ -38,9 +38,13 @@ void aGraph::Load()
 		{
 			getline(file, EdgeWeightType);
 			getline(file, temp);
-			getline(file, temp);
 			break;
 		}
+	}
+
+	for (auto i = 0; i < Dimension; i++)
+	{
+		Distances.push_back(vector<int>());
 	}
 
 	for (auto i = 0; i < Dimension; i++)
@@ -49,7 +53,7 @@ void aGraph::Load()
 		{
 			int distance;
 			file >> distance;
-			Distances[i].push_back(j);
+			Distances[i].push_back(distance);
 		}
 	}
 }
