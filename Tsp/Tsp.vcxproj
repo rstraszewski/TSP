@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="TSPLIB95\atsp\bestSolutions.txt" />
     <Text Include="TSPLIB95\readme.txt" />
     <Text Include="TSPLIB95\tsp\bestSolutions.txt" />
   </ItemGroup>
@@ -170,6 +171,25 @@
     <ClCompile Include="TspProblem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="TSPLIB95\atsp\br17.atsp" />
+    <None Include="TSPLIB95\atsp\ft53.atsp" />
+    <None Include="TSPLIB95\atsp\ft70.atsp" />
+    <None Include="TSPLIB95\atsp\ftv170.atsp" />
+    <None Include="TSPLIB95\atsp\ftv33.atsp" />
+    <None Include="TSPLIB95\atsp\ftv35.atsp" />
+    <None Include="TSPLIB95\atsp\ftv38.atsp" />
+    <None Include="TSPLIB95\atsp\ftv44.atsp" />
+    <None Include="TSPLIB95\atsp\ftv47.atsp" />
+    <None Include="TSPLIB95\atsp\ftv55.atsp" />
+    <None Include="TSPLIB95\atsp\ftv64.atsp" />
+    <None Include="TSPLIB95\atsp\ftv70.atsp" />
+    <None Include="TSPLIB95\atsp\kro124p.atsp" />
+    <None Include="TSPLIB95\atsp\p43.atsp" />
+    <None Include="TSPLIB95\atsp\rbg323.atsp" />
+    <None Include="TSPLIB95\atsp\rbg358.atsp" />
+    <None Include="TSPLIB95\atsp\rbg403.atsp" />
+    <None Include="TSPLIB95\atsp\rbg443.atsp" />
+    <None Include="TSPLIB95\atsp\ry48p.atsp" />
     <None Include="TSPLIB95\DOC.pdf" />
     <None Include="TSPLIB95\DOC.PS" />
     <None Include="TSPLIB95\tsp\a280.opt.tour" />
