@@ -26,7 +26,7 @@ double getTime()
 {
 	LARGE_INTEGER li;
 	QueryPerformanceCounter(&li);
-	cout << "Operacja zajela: " << (li.QuadPart - licznik) / PCFreq << " milisekund" << endl;
+	//cout << "Operacja zajela: " << (li.QuadPart - licznik) / PCFreq << " milisekund" << endl;
 	return double((li.QuadPart - licznik) / PCFreq);
 }
 
@@ -75,27 +75,48 @@ int main()
 	//cin >> c;
 
 	//do testow
-	for (int i = 0; i < 5; i++)
+	fstream file;
+	file.open("test.txt");
+	string names[8];
+	double time[5] = { 0, 0, 0, 0, 0 };
+	names[0] = "berlin52.tsp";
+	names[1] = "pr76.tsp";
+	names[2] = "eil101.tsp";
+	names[3] = "pr152.tsp";
+	names[4] = "a280.tsp";
+	names[5] = "lin318.tsp";
+	names[6] = "pr439.tsp";
+	names[7] = "att532.tsp";
+	double solves[5] = { 0.9, 0.95, 0.99, 0.995, 0.999 };
+	for (int i = 0; i < 8; i++)
 	{
 		//symetryczny
-		auto gl = new Graph("TSPLIB95/tsp/burma14.tsp");
+		auto gl = new Graph(names[i]);
 		gl->Load();
 		auto problem = new TspProblem(gl);
-		start();
-		auto result1 = problem->Solve(0.9);
-		getTime();
-		start();
-		auto result2 = problem->Solve(0.95);
-		getTime();
-		start();
-		auto result3 = problem->Solve(0.99);
-		getTime();
-		start();
-		auto result4 = problem->Solve(0.995);
-		getTime();
-		start();
-		auto result5 = problem->Solve(0.999);
-		getTime();
+		file << names[i] << endl;
+		for (int j = 0; j < 5; j++)
+		{
+			start();
+			auto result1 = problem->Solve(solves[0]);
+			time[0] += getTime();
+		
+			start();
+			auto result2 = problem->Solve(solves[1]);
+			time[1] += getTime();
+
+			start();
+			auto result3 = problem->Solve(solves[2]);
+			time[2] += getTime();
+
+			start();
+			auto result4 = problem->Solve(solves[3]);
+			time[3] += getTime();
+
+			start();
+			auto result5 = problem->Solve(solves[4]);
+			time[4] += getTime();
+		}
 	}
 	system("pause");
 	return 0;
