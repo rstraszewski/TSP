@@ -33,6 +33,12 @@
     <ClInclude Include="TspProblem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="aGraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aTspProblem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -45,6 +51,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TspProblem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aGraph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="aTspProblem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

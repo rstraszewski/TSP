@@ -16,7 +16,8 @@
 #include <vector>
 #include <algorithm>
 #include <functional>
-
+#include <windows.h>
+#include <ctime>
 #include <sstream>
 using namespace std;
 
