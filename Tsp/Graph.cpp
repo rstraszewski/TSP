@@ -2,9 +2,9 @@
 #include "Graph.h"
 
 
-Graph::Graph()
+Graph::Graph(string s)
 {
-	file.open("TSPLIB95/tsp/a280.tsp");
+	file.open(s);
 	if (!file.good())
 		throw new exception("File not found");
 }

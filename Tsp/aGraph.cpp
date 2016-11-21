@@ -2,9 +2,9 @@
 #include "aGraph.h"
 
 
-aGraph::aGraph()
+aGraph::aGraph(string s)
 {
-	file.open("TSPLIB95/atsp/br17.atsp");
+	file.open(s);
 	if (!file.good())
 		throw new exception("File not found");
 }

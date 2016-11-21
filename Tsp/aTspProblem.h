@@ -13,6 +13,6 @@ public:
 	vector<int> Path;
 	int Cost;
 	aTspProblem(aGraph * graph);
-	vector<int> Solve();
+	vector<int> Solve(double a);
 };
 

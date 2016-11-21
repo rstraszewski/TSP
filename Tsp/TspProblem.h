@@ -14,7 +14,7 @@ public:
 	vector<int> Path;
 	float Cost;
 	TspProblem(Graph * graph);
-	vector<int> Solve();
+	vector<int> Solve(double a);
 	~TspProblem();
 };
 

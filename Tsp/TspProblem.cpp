@@ -7,7 +7,7 @@ TspProblem::TspProblem(Graph * graph)
 	_graph = graph;
 }
 
-vector<int> TspProblem::Solve()
+vector<int> TspProblem::Solve(double a)
 {
 	const double EulerConstant = std::exp(1.0);
 
@@ -16,7 +16,7 @@ vector<int> TspProblem::Solve()
 
 	double t = 100;
 	double tMin = 0.00001;
-	double alpha = 0.99999;
+	double alpha = a;
 
 	while(t > tMin)
 	{

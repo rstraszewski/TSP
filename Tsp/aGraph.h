@@ -12,9 +12,8 @@ public:
 	int Dimension;
 	string EdgeWeightType;
 
-	aGraph();
+	aGraph(string s);
 	~aGraph();
 	void Load();
-	void Split(const std::string& s, char delim, std::vector<std::string>& elems);
 };
 
