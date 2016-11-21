@@ -188,7 +188,7 @@ vector<int> TspProblem::Solve()
 	v.push_back(82 - 1);
 	v.push_back(81 - 1);
 	v.push_back(80 - 1);
-	v.push_back(79 - 1);
+	v.push_bk(79 - 1);
 	v.push_back(78 - 1);
 	v.push_back(77 - 1);
 	v.push_back(76 - 1);

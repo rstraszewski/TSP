@@ -48,7 +48,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="TSPLIB95\tsp\a280.opt.tour" />
     <None Include="TSPLIB95\tsp\a280.tsp" />
     <None Include="TSPLIB95\tsp\ali535.tsp" />
