@@ -79,7 +79,8 @@ int main()
 	file.open("test.txt");
 	string names[8];
 	string anames[8];
-	double time[8] = { 0, 0, 0, 0, 0, 0, 0 , 0};
+	
+	
 	names[0] = "berlin52.tsp";
 	names[1] = "pr76.tsp";
 	names[2] = "eil101.tsp";
@@ -97,9 +98,12 @@ int main()
 	anames[6] = "rbg358.atsp";
 	anames[7] = "rbg443.atsp";
 	double solves[8] = { 0.9, 0.95, 0.99, 0.995, 0.999, 0.9995, 0.9999, 0.99995 };
-	double costs[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+
+	
 	for (int i = 0; i < 8; i++)
 	{
+		double costs[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+		double time[8] = { 0, 0, 0, 0, 0, 0, 0 , 0 };
 		auto gl = new Graph(names[i]);
 		gl->Load();
 		auto problem = new TspProblem(gl);
@@ -148,6 +152,8 @@ int main()
 	//asymetryczny
 	for (int i = 0; i < 8; i++)
 	{
+		double atime[8] = { 0, 0, 0, 0, 0, 0, 0 , 0 };
+		double acosts[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 		auto agl = new aGraph(anames[i]);
 		agl->Load();
 		auto aproblem = new aTspProblem(agl);
@@ -156,38 +162,38 @@ int main()
 		{
 			start();
 			auto result1 = aproblem->Solve(solves[0]);
-			time[0] += getTime();
-			costs[0] += aproblem->Cost;
+			atime[0] += getTime();
+			acosts[0] += aproblem->Cost;
 			start();
 			auto result2 = aproblem->Solve(solves[1]);
-			time[1] += getTime();
-			costs[1] += aproblem->Cost;
+			atime[1] += getTime();
+			acosts[1] += aproblem->Cost;
 			start();
 			auto result3 = aproblem->Solve(solves[2]);
-			time[2] += getTime();
-			costs[2] += aproblem->Cost;
+			atime[2] += getTime();
+			acosts[2] += aproblem->Cost;
 			start();
 			auto result4 = aproblem->Solve(solves[3]);
-			time[3] += getTime();
-			costs[3] += aproblem->Cost;
+			atime[3] += getTime();
+			acosts[3] += aproblem->Cost;
 			start();
 			auto result5 = aproblem->Solve(solves[4]);
-			time[4] += getTime();
-			costs[4] += aproblem->Cost;
+			atime[4] += getTime();
+			acosts[4] += aproblem->Cost;
 			auto result6 = aproblem->Solve(solves[5]);
-			time[5] += getTime();
-			costs[5] += aproblem->Cost;
+			atime[5] += getTime();
+			acosts[5] += aproblem->Cost;
 			auto result7 = aproblem->Solve(solves[6]);
-			time[6] += getTime();
-			costs[6] += aproblem->Cost;
+			atime[6] += getTime();
+			acosts[6] += aproblem->Cost;
 			auto result8 = aproblem->Solve(solves[7]);
-			time[7] += getTime();
-			costs[7] += aproblem->Cost;
+			atime[7] += getTime();
+			acosts[7] += aproblem->Cost;
 		}
 
 		for (int j = 0; j < 8; j++)
 		{
-			file << solves[j] << " " << time[j] / 8 << " " << costs[j] / 8 << endl;
+			file << solves[j] << " " << atime[j] / 8 << " " << acosts[j] / 8 << endl;
 		}
 		cout << endl;
 	}
