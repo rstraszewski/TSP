@@ -182,7 +182,7 @@ int main()
 			costs[6] += aproblem->Cost;
 			auto result8 = aproblem->Solve(solves[7]);
 			time[7] += getTime();
-			costs[7] += problem->Cost;
+			costs[7] += aproblem->Cost;
 		}
 
 		for (int j = 0; j < 8; j++)
