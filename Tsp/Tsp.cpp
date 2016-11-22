@@ -108,6 +108,7 @@ int main()
 		gl->Load();
 		auto problem = new TspProblem(gl);
 		file << names[i] << endl;
+		file << endl;
 		for (int j = 0; j < 5; j++)
 		{
 			start();
@@ -143,9 +144,9 @@ int main()
 
 		for (int j = 0; j < 8; j++)
 		{
-			file << solves[j] << " " << time[j] / 8 << " " << costs[j] / 8 << endl;
+			file << solves[j] << " " << time[j] / 5 << " " << costs[j] / 5 << endl;
 		}
-		cout << endl;
+		file << endl;
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -158,6 +159,7 @@ int main()
 		agl->Load();
 		auto aproblem = new aTspProblem(agl);
 		file << anames[i] << endl;
+		file << endl;
 		for (int j = 0; j < 5; j++)
 		{
 			start();
@@ -193,7 +195,7 @@ int main()
 
 		for (int j = 0; j < 8; j++)
 		{
-			file << solves[j] << " " << atime[j] / 8 << " " << acosts[j] / 8 << endl;
+			file << solves[j] << " " << atime[j] / 5 << " " << acosts[j] / 5 << endl;
 		}
 		cout << endl;
 	}
