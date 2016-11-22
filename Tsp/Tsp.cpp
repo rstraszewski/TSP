@@ -75,10 +75,11 @@ int main()
 	//cin >> c;
 
 	//do testow
-	fstream file;
+	ofstream file;
 	file.open("test.txt");
 	string names[8];
-	double time[5] = { 0, 0, 0, 0, 0 };
+	string anames[8];
+	double time[8] = { 0, 0, 0, 0, 0, 0, 0 , 0};
 	names[0] = "berlin52.tsp";
 	names[1] = "pr76.tsp";
 	names[2] = "eil101.tsp";
@@ -87,10 +88,18 @@ int main()
 	names[5] = "lin318.tsp";
 	names[6] = "pr439.tsp";
 	names[7] = "att532.tsp";
-	double solves[5] = { 0.9, 0.95, 0.99, 0.995, 0.999 };
+	anames[0] = "br17.atsp";
+	anames[1] = "ftv33.atsp";
+	anames[2] = "ft53.atsp";
+	anames[3] = "ftv70.atsp";
+	anames[4] = "kro124p.atsp";
+	anames[5] = "ftv170.atsp";
+	anames[6] = "rbg358.atsp";
+	anames[7] = "rbg443.atsp";
+	double solves[8] = { 0.9, 0.95, 0.99, 0.995, 0.999, 0.9995, 0.9999, 0.99995 };
+	double costs[8] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 	for (int i = 0; i < 8; i++)
 	{
-		//symetryczny
 		auto gl = new Graph(names[i]);
 		gl->Load();
 		auto problem = new TspProblem(gl);
@@ -100,24 +109,89 @@ int main()
 			start();
 			auto result1 = problem->Solve(solves[0]);
 			time[0] += getTime();
-		
+			costs[0] += problem->Cost;
 			start();
 			auto result2 = problem->Solve(solves[1]);
 			time[1] += getTime();
-
+			costs[1] += problem->Cost;
 			start();
 			auto result3 = problem->Solve(solves[2]);
 			time[2] += getTime();
-
+			costs[2] += problem->Cost;
 			start();
 			auto result4 = problem->Solve(solves[3]);
 			time[3] += getTime();
-
+			costs[3] += problem->Cost;
 			start();
 			auto result5 = problem->Solve(solves[4]);
 			time[4] += getTime();
+			costs[4] += problem->Cost;
+			auto result6 = problem->Solve(solves[5]);
+			time[5] += getTime();
+			costs[5] += problem->Cost;
+			auto result7 = problem->Solve(solves[6]);
+			time[6] += getTime();
+			costs[6] += problem->Cost;
+			auto result8 = problem->Solve(solves[7]);
+			time[7] += getTime();
+			costs[7] += problem->Cost;
 		}
+
+		for (int j = 0; j < 8; j++)
+		{
+			file << solves[j] << " " << time[j] / 8 << " " << costs[j] / 8 << endl;
+		}
+		cout << endl;
 	}
+
+	///////////////////////////////////////////////////////////////////////////
+	//asymetryczny
+	for (int i = 0; i < 8; i++)
+	{
+		auto agl = new aGraph(anames[i]);
+		agl->Load();
+		auto aproblem = new aTspProblem(agl);
+		file << anames[i] << endl;
+		for (int j = 0; j < 5; j++)
+		{
+			start();
+			auto result1 = aproblem->Solve(solves[0]);
+			time[0] += getTime();
+			costs[0] += aproblem->Cost;
+			start();
+			auto result2 = aproblem->Solve(solves[1]);
+			time[1] += getTime();
+			costs[1] += aproblem->Cost;
+			start();
+			auto result3 = aproblem->Solve(solves[2]);
+			time[2] += getTime();
+			costs[2] += aproblem->Cost;
+			start();
+			auto result4 = aproblem->Solve(solves[3]);
+			time[3] += getTime();
+			costs[3] += aproblem->Cost;
+			start();
+			auto result5 = aproblem->Solve(solves[4]);
+			time[4] += getTime();
+			costs[4] += aproblem->Cost;
+			auto result6 = aproblem->Solve(solves[5]);
+			time[5] += getTime();
+			costs[5] += aproblem->Cost;
+			auto result7 = aproblem->Solve(solves[6]);
+			time[6] += getTime();
+			costs[6] += aproblem->Cost;
+			auto result8 = aproblem->Solve(solves[7]);
+			time[7] += getTime();
+			costs[7] += problem->Cost;
+		}
+
+		for (int j = 0; j < 8; j++)
+		{
+			file << solves[j] << " " << time[j] / 8 << " " << costs[j] / 8 << endl;
+		}
+		cout << endl;
+	}
+	file.close();
 	system("pause");
 	return 0;
 }
